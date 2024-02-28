@@ -54,7 +54,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 005097c3604e35e48a7c16223a801fbb, type: 2}
     - target: {fileID: 919132149155446097, guid: 90aa1857ce0d5604ca031a2d672e0639, type: 3}
       propertyPath: m_Name
-      value: LargeCloud
+      value: LargeCloudPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 90aa1857ce0d5604ca031a2d672e0639, type: 3}
+      propertyPath: m_TagString
+      value: LargeCloudTag
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -66,6 +70,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 90aa1857ce0d5604ca031a2d672e0639, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1857408035797956268}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 90aa1857ce0d5604ca031a2d672e0639, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8790144489280487057}
   m_SourcePrefab: {fileID: 100100000, guid: 90aa1857ce0d5604ca031a2d672e0639, type: 3}
 --- !u!1 &1333658863588705195 stripped
 GameObject:
@@ -104,5 +111,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b065fc6cc5d6e748a76f94df5af0bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8790144489280487057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333658863588705195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acbb673f2f5fcad4e8a990a2fccc2cd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

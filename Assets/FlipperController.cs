@@ -25,27 +25,75 @@ public class FlipperController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+/* 矢印キー（タッチ確認のためコメントアウト）
+            //左矢印キーを押した時左フリッパーを動かす
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && tag == "LeftFripperTag")
+            {
+                SetAngle(this.flickAngle);
+            }
+            //右矢印キーを押した時右フリッパーを動かす
+            if (Input.GetKeyDown(KeyCode.RightArrow) && tag == "RightFripperTag")
+            {
+                SetAngle(this.flickAngle);
+            }
 
-        //左矢印キーを押した時左フリッパーを動かす
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && tag == "LeftFripperTag")
-        {
-            SetAngle(this.flickAngle);
-        }
-        //右矢印キーを押した時右フリッパーを動かす
-        if (Input.GetKeyDown(KeyCode.RightArrow) && tag == "RightFripperTag")
-        {
-            SetAngle(this.flickAngle);
-        }
+            //矢印キー離された時フリッパーを元に戻す
+            if (Input.GetKeyUp(KeyCode.LeftArrow) && tag == "LeftFripperTag")
+            {
+                SetAngle(this.defaultAngle);
+            }
+            if (Input.GetKeyUp(KeyCode.RightArrow) && tag == "RightFripperTag")
+            {
+                SetAngle(this.defaultAngle);
+            }
+ここまで*/
+            if(Input.touchCount > 0)
+            {
+                //タッチ情報の取得
+                Touch touch = Input.GetTouch(0);
 
-        //矢印キー離された時フリッパーを元に戻す
-        if (Input.GetKeyUp(KeyCode.LeftArrow) && tag == "LeftFripperTag")
-        {
-            SetAngle(this.defaultAngle);
-        }
-        if (Input.GetKeyUp(KeyCode.RightArrow) && tag == "RightFripperTag")
-        {
-            SetAngle(this.defaultAngle);
-        }
+                //押した瞬間
+                if(touch.phase == TouchPhase.Began)
+                {
+                    if(Input.mousePosition.x >= Screen.width / 2 &&
+                       tag == "RightFripperTag") // 右半分
+                    {
+                        Debug.Log("右押した");
+                        SetAngle(this.flickAngle);
+
+                    }
+                    else if (Input.mousePosition.x <= Screen.width / 2 &&
+                             tag == "LeftFripperTag") // 左半分
+                    {
+                        Debug.Log("左押した");
+                        SetAngle(this.flickAngle);
+                    }
+                }
+                //押しっぱなし
+                if(touch.phase == TouchPhase.Moved)
+                {
+                    Debug.Log("押しっぱなし、なにもしない");
+                }
+                //離した瞬間
+                if(touch.phase == TouchPhase.Ended)
+                {
+                
+                    if (Input.mousePosition.x >= Screen.width / 2 &&
+                        tag == "RightFripperTag") // 右半分
+                    {
+                        Debug.Log("右離した");
+                        SetAngle(this.defaultAngle);
+
+                }
+                    else if (Input.mousePosition.x <= Screen.width / 2 &&
+                             tag == "LeftFripperTag") // 左半分
+                    {
+                        Debug.Log("左離した");
+                        SetAngle(this.defaultAngle);
+                }
+                
+            }
+            }
     }
 
     //フリッパーの傾きを設定
